@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+
+# Local environment files (examples and the non-secret test file are committed)
+.env
+.env.local
+!.env.example
+!.env.test

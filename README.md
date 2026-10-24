@@ -34,3 +34,9 @@ npm run dev
 | `npm run typecheck` | TypeScript, no emit |
 | `npm run format:check` | Prettier check |
 | `npm run build` / `npm start` | Compile to `dist/` and run it |
+
+## Test-database safety
+
+Test helpers call `assertTestDatabase()` before touching the database. It refuses to run unless
+`NODE_ENV=test` **and** the database name in `DATABASE_URL` ends with `_test`, so tests can never
+wipe your development data.

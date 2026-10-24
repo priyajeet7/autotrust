@@ -41,11 +41,14 @@ describe('assertTestDatabase', () => {
     );
   });
 
-  it.each([undefined, '', 'not a url'])('refuses a missing or unparseable DATABASE_URL: %j', (url) => {
-    expect(() => assertTestDatabase({ NODE_ENV: 'test', DATABASE_URL: url })).toThrow(
-      TestDatabaseGuardError,
-    );
-  });
+  it.each([undefined, '', 'not a url'])(
+    'refuses a missing or unparseable DATABASE_URL: %j',
+    (url) => {
+      expect(() => assertTestDatabase({ NODE_ENV: 'test', DATABASE_URL: url })).toThrow(
+        TestDatabaseGuardError,
+      );
+    },
+  );
 
   it('names the offending database in the error but never the password', () => {
     const url = 'postgresql://admin:SuperSecret123@prod-db:5432/autotrust';

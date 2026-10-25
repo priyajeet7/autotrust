@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import { createApp } from './app.js';
 import { EnvValidationError, parseEnv } from './config/env.js';
 import type { Env } from './config/env.js';
+import { createPrismaClient } from './lib/prisma.js';
 
 dotenv.config({ quiet: true });
 
@@ -22,13 +23,16 @@ function loadConfig(): Env {
 }
 
 const env = loadConfig();
-const server = createApp().listen(env.PORT, () => {
+const prisma = createPrismaClient(env.DATABASE_URL);
+const server = createApp({ prisma, jwtSecret: env.JWT_SECRET }).listen(env.PORT, () => {
   console.log(`AutoTrust API listening on port ${String(env.PORT)} (${env.NODE_ENV})`);
 });
 
 function shutdown(signal: NodeJS.Signals): void {
   console.log(`${signal} received, closing server`);
-  server.close(() => process.exit(0));
+  server.close(() => {
+    void prisma.$disconnect().finally(() => process.exit(0));
+  });
 }
 
 process.on('SIGINT', shutdown);

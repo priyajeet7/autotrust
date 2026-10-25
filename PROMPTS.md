@@ -1,7 +1,11 @@
 # AI Prompts
 
-Raw prompts I sent to AI tools while building AutoTrust, copied verbatim (typos included). Nothing
-here is an AI-written summary.
+Prompts I sent to AI tools while building AutoTrust, plus a share link and a partial transcript
+excerpt that I recovered from an earlier conversation. Prompts and excerpts are copied verbatim as
+supplied (typos included), except for disclosed privacy redactions. The file also contains one
+clearly labelled summary, written by me, of a Claude reply I could not recover word for word; that
+summary is not verbatim. Sessions or messages that have not been recovered are marked
+⚠️ MISSING / not recovered.
 
 ---
 

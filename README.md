@@ -85,8 +85,16 @@ created.
 ```bash
 cd backend
 npm install                 # also runs `prisma generate`
-cp .env.example .env        # then set JWT_SECRET (instructions inside)
+cp .env.example .env        # then set JWT_SECRET: see below
 npm run db:deploy           # apply migrations to the dev database
+```
+
+**Set your own `JWT_SECRET` before starting the API.** It signs every login token, so it must be a
+unique random value of at least 32 characters. Never reuse an example value. `.env.example` leaves
+it empty on purpose, and the server refuses to start until it is set. Generate one with:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(48).toString('base64url'))"
 ```
 
 Seed an admin account and 8 sample vehicles. This is idempotent; vehicles are only added to an
@@ -117,7 +125,7 @@ Open <http://localhost:5173> and either sign in as the seeded admin or create a 
 | Variable                                  | Required | Description                                       |
 | ----------------------------------------- | -------- | ------------------------------------------------- |
 | `DATABASE_URL`                            | yes      | `postgresql://user:pass@host:5432/autotrust`      |
-| `JWT_SECRET`                              | yes      | at least 32 characters; signs login tokens        |
+| `JWT_SECRET`                              | yes      | your own random secret, 32+ characters; signs tokens |
 | `PORT`                                    | no       | default `4000`                                    |
 | `NODE_ENV`                                | no       | `development` (default), `test` or `production`   |
 | `SEED_ADMIN_EMAIL`, `SEED_ADMIN_PASSWORD` | seed     | only used by `npm run db:seed`                    |
@@ -241,8 +249,16 @@ Also passing at the time of writing: backend `npm run lint`, `npm run typecheck`
 
 ### Development workflow (TDD)
 
-Features were built in Red → Green steps, each a separate commit. A `test:` commit adds failing
-tests (its message records the actual failing count), then a `feat:` commit makes them pass. See
+Most features were developed test-first. A `test:` commit adds failing tests (its message records
+the actual failing count), then a `feat:` commit makes them pass. This applies to environment
+validation, the test-database guard, the health endpoint, authentication, vehicles, inventory and the
+frontend.
+
+Not everything followed a strict Red → Green → Refactor sequence. The repository scaffold
+(`914d6a8`), the server entrypoint (`41de392`), the Prisma setup (`d0ad130`), the database schema and
+migration (`dc30fa7`), the seed script (`ab65d49`) and the screenshot script were written without
+failing tests first. They were checked by running them, as their commit messages record. Refactoring
+mostly happened inside the green commits; there is one separate refactor commit (`fcf2ef2`). See
 `git log --oneline`.
 
 ## My AI Usage

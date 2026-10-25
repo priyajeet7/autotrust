@@ -216,3 +216,207 @@ Finish the remaining submission documentation in my AutoTrust project.
 
 Do not push to GitHub. Report the actual results and any remaining blockers.
 ```
+
+### Prompts 6 onward (copied from this session's Claude Code transcript)
+
+Prompts 6 onward were extracted programmatically from the local Claude Code session transcript, so
+they are verbatim, not retyped, except that the `<pasted_content …>` wrapper tags the tool adds
+around pasted text have been removed, and the disclosed redaction in Prompt 15 and omission in
+Prompt 13 noted below. Two automatic background-task notifications
+recorded in the transcript between prompts 19 and 20 are not user prompts and are left out.
+
+### Prompt 6
+
+~~~~text
+My GitHub repository is https://github.com/priyajeet7/autotrust.git
+
+Please publish my existing project safely.
+
+1. Inspect the current branch, working tree, existing Git remotes, and latest commits.
+2. Verify that no real secrets or local .env files are tracked.
+3. Preserve all existing commits and the existing origin remote.
+4. Add my GitHub repository as a new remote named github.
+5. Push the existing main branch using `git push -u github main`. Never force-push or reset anything.
+6. If authentication is required, guide me through it.
+7. Verify the push succeeded and show me the repository URL.
+
+Do not create unnecessary commits or publish anything beyond the existing project.
+~~~~
+
+### Prompt 7
+
+~~~~text
+Before editing PROMPTS.md, help me recover the share links for my earlier Claude sessions used to build AutoTrust. Do not invent links or fabricate raw chat logs.
+
+If the links are not available locally, tell me how to find them in my Claude chat history and share them with you. Keep the existing ⚠️ MISSING notice until I provide the real links.
+
+Once I provide the links, update PROMPTS.md accurately, review the changes, commit them with the required co-author trailer, and push the new commit to https://github.com/priyajeet7/autotrust.git. Verify the push.
+~~~~
+
+### Prompt 8
+
+~~~~text
+I found one genuine earlier Claude conversation link for AutoTrust:
+https://claude.ai/share/ee388574-da75-4bd9-b407-fbbd66c1369c
+
+Please inspect the conversation link if accessible and determine which part of the AutoTrust work it documents. Update PROMPTS.md to include this exact link with an accurate description, without claiming it covers other sessions unless verified.
+
+Keep the ⚠️ MISSING notice for any earlier sessions not covered by this link. Show me the diff, then commit the documentation change with the required co-author trailer and push to the existing GitHub remote. Do not fabricate raw prompts or logs. Verify the push afterward.
+
+If you cannot access the conversation contents, ask me for its title or a brief description before assigning it to a specific phase.
+~~~~
+
+### Prompt 9
+
+~~~~text
+I checked the earlier Claude conversation. Its exact title is "Phase 1 architecture approval".
+
+Share link:
+https://claude.ai/share/ee388574-da75-4bd9-b407-fbbd66c1369c
+
+The conversation appears to cover AutoTrust project architecture and the Prisma M1 blocker/options, including an autotrust-m0.bundle and m1-prisma-tooling.patch. This description is based on my inspection of the shared conversation page; do not claim it documents specific earlier commits unless you can verify that.
+
+Please update PROMPTS.md with this exact title and link, clearly identifying the scope as user-described. Keep the ⚠️ MISSING notice for any earlier sessions or raw prompts not covered by this link.
+
+Show me the diff before committing. Then commit the documentation change with the required co-author trailer, push to the existing GitHub remote, and verify that the remote main branch matches the new local commit. Do not fabricate prompts or logs.
+~~~~
+
+### Prompt 10
+
+~~~~text
+I have recovered and pasted the original text from the earlier Claude conversation titled "Phase 1 architecture approval".
+
+Update the root PROMPTS.md to include the original conversation text I supplied, preserving it verbatim as far as practical. Clearly label it as a user-provided transcript excerpt and retain its genuine share link:
+https://claude.ai/share/ee388574-da75-4bd9-b407-fbbd66c1369c
+
+Do not invent any missing messages or claim this excerpt is the complete conversation. Keep the existing missing-session notice for other sessions and any parts not recovered.
+
+Before committing:
+1. Show me the diff and confirm only PROMPTS.md changed.
+2. Check that the transcript contains no credentials or secrets.
+3. Commit with the project's required truthful AI co-author trailer.
+4. Push to the existing GitHub remote without force-pushing.
+5. Verify that local main and GitHub main point to the same commit.
+
+Repository: https://github.com/priyajeet7/autotrust
+~~~~
+
+### Prompt 11
+
+~~~~text
+The original transcript excerpt is in my ChatGPT conversation immediately before your last response. I pasted it starting with "Claude — Created 2 files, shared 2 files, ran 5 commands" and ending with "As soon as I can see your repo, I'll start with M1: the reset-helper red/green step, then the schema with the first Prisma-generated migration (CHECK constraints added by hand and disclosed in the commit), then factories. Auth comes after that."
+
+However, you may not have access to my ChatGPT conversation. If you cannot see that exact text, do not guess or fabricate it. I'll provide the transcript directly in the next message.
+
+Do not change, commit, or push anything until the actual transcript text is available.
+~~~~
+
+### Prompt 12
+
+~~~~text
+I understand you cannot access my ChatGPT conversation. I will transfer the transcript directly.
+
+Please wait for me to paste the transcript in multiple parts. Do not edit PROMPTS.md, commit, or push anything until I explicitly say "TRANSCRIPT COMPLETE".
+
+After that, check the supplied text for secrets, add it verbatim as a user-provided transcript excerpt under the "Phase 1 architecture approval" section in PROMPTS.md, preserve the share link and the missing-session notice, show me the diff, and ask for my approval before committing.
+~~~~
+
+### Prompt 13
+
+The body of this prompt is **omitted here**. It was the recovered "Phase 1 architecture approval"
+transcript text, and it contains the unredacted Windows username, commit email and local database
+password. The same text is reproduced in the excerpt section above, with those privacy redactions
+disclosed. Only the omission is mine; nothing was rewritten.
+
+### Prompt 14
+
+~~~~text
+1. The closing message beginning "As soon as I can see your repo, I'll start with M1..." was present in the original conversation I pasted into ChatGPT, but it was not included in the text I transferred to you. Treat it as missing from the transcript you received. Do not recreate it from memory.
+
+2. The "Initial response from Claude" section in my paste was a summary, not guaranteed to be Claude's exact original wording. Label it clearly as a user-provided summary, not a verbatim transcript.
+
+3. Please include only the text that was actually transferred and can be represented accurately. Keep the summary separately labelled, exclude my instructions to myself, preserve the genuine share link, and keep the ⚠️ MISSING notice for unrecovered messages and other sessions.
+
+I authorize you to prepare the proposed PROMPTS.md diff only. Do not commit or push yet. Show me the diff and wait for my approval.
+~~~~
+
+### Prompt 15
+
+**Privacy redaction (not verbatim):** the literal local database password quoted in this prompt has
+been replaced with `[local development password]`. All other text is verbatim.
+
+~~~~text
+Please make these final privacy edits before committing:
+
+1. In the recovered transcript excerpt in PROMPTS.md, replace the Windows username in local paths with a neutral placeholder such as C:\Users\<user>\Downloads\autotrust.
+2. Replace the example local database password "[local development password]" with [local development password] wherever it appears in the transcript excerpt. Preserve the meaning of the original text, and note that these are privacy redactions rather than verbatim text.
+3. Keep the genuine share link, the summary clearly labelled as a summary, and all ⚠️ MISSING notices.
+4. Show me the updated diff and confirm only PROMPTS.md changed. Do not commit yet.
+~~~~
+
+### Prompt 16
+
+~~~~text
+Please replace my email address with [commit email redacted] inside the recovered transcript excerpt in PROMPTS.md, and ensure the privacy-redactions note mentions this change. Do not alter Git history or redact the actual Git commit metadata. Show me the final diff and confirm only PROMPTS.md changed. Do not commit yet.
+~~~~
+
+### Prompt 17
+
+~~~~text
+approve
+~~~~
+
+### Prompt 18
+
+~~~~text
+Perform a final read-only assessment audit of AutoTrust against the original Incubyte requirements. Do not edit files, commit, or push.
+
+Run or inspect the actual results for backend tests, frontend tests, typechecks, lint, and production builds. Verify README setup instructions, screenshots, test report, My AI Usage, PROMPTS.md, and GitHub commit history.
+
+Report:
+1. Any failing checks.
+2. Any missing mandatory requirements.
+3. Any discrepancies between documented and actual test results.
+4. Any remaining submission risks.
+
+Do not claim a check passed unless you actually verify it. Prioritize critical issues because time is limited.
+~~~~
+
+### Prompt 19
+
+~~~~text
+Make only these small final corrections to AutoTrust. Do not add new features.
+
+1. Correct the README wording about TDD so it accurately states that tests were written first in some workflows, but not every feature followed a strict Red-Green-Refactor sequence. Preserve truthful commit history and test results.
+2. Correct the contradictory opening statement in PROMPTS.md so it acknowledges that the file contains both supplied prompts/transcript excerpts and a clearly labelled user-provided summary. Preserve the missing-session notice.
+3. Review backend/.env.example and the README setup instructions. The example JWT secret is publicly known. Make it explicit that users must generate a unique random secret of at least 32 characters before running the application. Do not change the real local secret or expose it.
+4. Run relevant checks, inspect the diff, and confirm only intended documentation/configuration files changed.
+5. Show me the diff and wait for my approval before committing or pushing.
+
+Do not fabricate recovered prompts, tests, screenshots, or TDD evidence. Do not force-push.
+~~~~
+
+### Prompt 20
+
+This message is recorded as a user-turn message in the transcript. It may have been inserted
+automatically by Claude Code when the usage limit reset, rather than typed by me.
+
+~~~~text
+Your claude.ai usage limit has reset. Continue the task you were working on when the limit was reached; do not repeat work that is already complete.
+~~~~
+
+### Prompt 21
+
+~~~~text
+approve
+~~~~
+
+### Prompt 22
+
+~~~~text
+Add the actual recent user prompts from this Claude Code session to PROMPTS.md verbatim, starting with my request to publish the project to GitHub and continuing through my request to add recent prompts to PROMPTS.md.
+
+Use only the exact prompt text available in this session's transcript. Do not invent, paraphrase, or reconstruct messages you cannot access. Label the section clearly, preserve existing content and the ⚠️ MISSING notice for unrecovered sessions, and redact secrets if any appear.
+
+Show me the diff and confirm only PROMPTS.md changed. Wait for my approval before committing or pushing.
+~~~~

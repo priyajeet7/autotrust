@@ -155,6 +155,9 @@ _Commits `d0ad130` onward._
 
 ### Prompt 1
 
+**Privacy redaction (not verbatim):** my Gmail address in this prompt has been replaced with
+`[email redacted]`. The remaining prompt text is unchanged.
+
 ```
 Work autonomously to complete my existing AutoTrust Car Dealership Inventory System assessment in this repository. My deadline is close, so prioritize a working, tested submission over optional features.
 
@@ -174,7 +177,7 @@ Complete all required features:
 
 Use the existing architecture where possible. Inspect before changing. Implement incrementally, run the real tests/typecheck/build, fix failures, and continue without waiting for confirmation on routine non-destructive coding tasks. Ask before destructive actions, deleting existing work, exposing secrets, or publishing anything.
 
-Use my Git author identity if commits are needed: Priyajeet Singh <priyanshusingh2300@gmail.com>. Every AI-assisted commit must have a truthful Co-authored-by trailer for Claude. Do not fabricate historical TDD commits, test results, screenshots, deployment, or features.
+Use my Git author identity if commits are needed: Priyajeet Singh <[email redacted]>. Every AI-assisted commit must have a truthful Co-authored-by trailer for Claude. Do not fabricate historical TDD commits, test results, screenshots, deployment, or features.
 
 Start by inspecting the repo, then implement the highest-priority missing requirements and continue until the required scope is complete. At the end, report what works, commands actually tested, remaining issues, and exact submission steps.
 ```

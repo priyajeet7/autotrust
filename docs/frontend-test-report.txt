@@ -1,5 +1,5 @@
 
- RUN  v5.0.5 C:/Users/priya/Downloads/autotrust/frontend
+ RUN  v5.0.5 C:/Users/<user>/Downloads/autotrust/frontend
 
  ✓ src/api/client.test.ts > api client > sends a JSON body with the bearer token and unwraps `data` 8ms
  ✓ src/api/client.test.ts > api client > throws an ApiError carrying the server message, code and status 1ms

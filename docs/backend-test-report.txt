@@ -1,0 +1,38 @@
+
+ RUN  v5.0.5 C:/Users/priya/Downloads/autotrust/backend
+      Coverage enabled with v8
+
+
+
+ Test Files  8 passed (8)
+      Tests  135 passed (135)
+   Start at  14:57:26
+   Duration  11.02s (tests 81%, import 16%, transform 2%, worker 1%)
+
+    Isolate  8 workers spawned · ~101ms startup each (spawn + environment, per file)
+             at least ~706ms faster with isolate: false — reuses workers across files instead of one per file
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   95.63 |    90.65 |     100 |   96.69 |                   
+ src/http          |    90.9 |     92.3 |     100 |   90.47 |                   
+  errors.ts        |    90.9 |     92.3 |     100 |   90.47 | 61-62             
+ src/modules/auth  |   93.82 |    89.18 |     100 |   97.26 |                   
+  ...middleware.ts |      95 |    92.85 |     100 |     100 | 47                
+  auth.routes.ts   |   96.66 |     87.5 |     100 |   96.42 | 64                
+  password.ts      |   86.95 |    84.61 |     100 |      95 | 54                
+ ...ules/inventory |   96.55 |    83.33 |     100 |   96.55 |                   
+  ...ory.routes.ts |   96.55 |    83.33 |     100 |   96.55 | 74                
+ ...dules/vehicles |   96.55 |    89.65 |     100 |   96.15 |                   
+  ...les.routes.ts |      95 |     90.9 |     100 |   94.28 | 88,100            
+  ...es.schemas.ts |     100 |    85.71 |     100 |     100 | 52                
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 95.63% ( 219/229 )
+Branches     : 90.65% ( 97/107 )
+Functions    : 100% ( 58/58 )
+Lines        : 96.69% ( 205/212 )
+================================================================================

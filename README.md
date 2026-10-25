@@ -261,15 +261,38 @@ has a `Co-authored-by: Claude` trailer. The prompts are in [PROMPTS.md](PROMPTS.
   the schema and migration, auth, vehicle CRUD and search, purchase and restock, the React/Tailwind
   UI, the tests for each (failing test commit first, then the implementation), the seed script, the
   screenshot script and a draft of this README.
-- **My part:** I defined the requirements, stack and constraints, installed and configured
-  PostgreSQL, created the role and databases, ran the superuser command to fix database ownership
-  when migrations failed, and reviewed the results.
+- **My part:** I defined the requirements, stack and constraints (including strict TDD, truthful
+  commit attribution and no fabricated results), installed and configured PostgreSQL, created the
+  role and databases, and ran the superuser command to fix database ownership when migrations
+  failed. I am responsible for the final review before submission.
 - **Verification:** Claude ran the real test suites, linters, type checks and builds after each
   step. The test report above is copied from actual runs, and the screenshots come from the running
   application.
 
-**Reflection:** _To be written by Priyajeet: how AI changed your workflow, what you checked or
-changed yourself, and what you would do differently._
+**Reflection:**
+
+- **Speed:** AI did most of the typing. In one session it took the project from an empty Prisma
+  schema to a tested API, a React UI, screenshots and documentation. Doing that by
+  hand would likely have taken considerably longer, especially the test cases.
+- **Constraints shaped the result.** Asking for test-first commits and truthful attribution up front
+  kept the history honest and reviewable: every feature has a failing-test commit with the real
+  failure count, followed by the commit that makes it pass.
+- **The tests caught real problems.** A frontend test failed because the password hint was inside
+  the `<label>`, so the field's accessible name was wrong. That was a genuine accessibility bug, and
+  the fix was to the UI, not the test. Strict TypeScript and ESLint settings also caught issues
+  (optional properties passed to Prisma, untyped request parameters) that were fixed before each
+  commit.
+- **AI output still needs checking.** In one commit message Claude guessed which red tests were
+  already passing. It then checked with a verbose test run, found the guess was wrong, and corrected
+  the message before moving on. Claims about results should come from actual runs, not from what
+  sounds plausible.
+- **Some steps needed me.** The local `autotrust` role could not create a shadow database or tables
+  in a database owned by `postgres`. The AI worked around the first (generating migration SQL with
+  `prisma migrate diff`), but the ownership fix needed my superuser password, so I ran it myself.
+  Environment and permission problems were where my involvement mattered most.
+- **Next time:** I would set up database ownership and privileges correctly before starting, and
+  save every AI chat (or its share link) as I go, so `PROMPTS.md` is complete without
+  reconstruction.
 
 ## Known limitations
 

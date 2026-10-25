@@ -9,8 +9,9 @@ here is an AI-written summary.
 
 _Commits `914d6a8`…`41de392`, plus the Prisma setup committed in `d0ad130`._
 
-<!-- TODO (Priyajeet): paste the raw prompts / chat log from these earlier Claude sessions here,
-     or add public share links to those chats. -->
+> **⚠️ MISSING:** the raw prompts and chat logs for these earlier sessions have not been added
+> yet. They were separate conversations, and their transcripts are not in this repository.
+> Paste them below verbatim, or add public share links. Until then, this section is incomplete.
 
 ---
 
@@ -58,4 +59,26 @@ Claude had asked me to run, as the `postgres` superuser,
 
 ```
 succeds
+```
+
+### Prompt 4
+
+I pasted this command (the ownership change was already in effect by then):
+
+```
+& "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -h localhost -p 5432 -d postgres -c "ALTER DATABASE autotrust OWNER TO autotrust;"
+```
+
+### Prompt 5
+
+```
+Finish the remaining submission documentation in my AutoTrust project.
+
+1. Complete the README's "My AI Usage" section using an honest reflection based on our actual work.
+2. Review PROMPTS.md. Preserve the prompts already recorded and clearly mark where earlier raw chat logs or links are still missing. Do not invent conversations.
+3. Run the final backend and frontend tests, typechecks, lint, format checks, and production builds.
+4. Check that no .env files, passwords, or secrets are tracked by Git.
+5. Review the final Git diff and commit the documentation changes with the required Claude co-author trailer.
+
+Do not push to GitHub. Report the actual results and any remaining blockers.
 ```

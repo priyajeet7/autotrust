@@ -23,6 +23,9 @@ const envSchema = z.object({
     error: (issue) =>
       issue.input === undefined ? 'is required' : 'must be a postgres:// or postgresql:// URL',
   }),
+  JWT_SECRET: z
+    .string({ error: 'is required' })
+    .min(32, { error: 'must be at least 32 characters' }),
 });
 
 export type Env = z.infer<typeof envSchema>;

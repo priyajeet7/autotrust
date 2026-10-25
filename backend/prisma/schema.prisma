@@ -1,0 +1,12 @@
+// AutoTrust database schema.
+// Connection URL lives in prisma.config.ts (Prisma 7); the app connects via the pg driver adapter.
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+}

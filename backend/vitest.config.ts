@@ -10,12 +10,14 @@ export default defineConfig({
     environment: 'node',
     include: ['tests/**/*.test.ts'],
     env: testEnv,
-    // Integration tests will share one database from M1 onward; run files serially.
+    // Applies committed migrations to the *_test database (guarded) before any test runs.
+    globalSetup: ['tests/setup/migrateTestDatabase.ts'],
+    // Integration tests share one database; run files serially.
     fileParallelism: false,
     coverage: {
       provider: 'v8',
       include: ['src/**/*.ts'],
-      exclude: ['src/server.ts'],
+      exclude: ['src/server.ts', 'src/generated/**'],
       reporter: ['text', 'html'],
     },
   },

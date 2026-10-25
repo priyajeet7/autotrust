@@ -4,6 +4,9 @@ coverage/
 *.log
 .DS_Store
 
+# Prisma client is generated from prisma/schema.prisma (npm install / npm run db:generate)
+backend/src/generated/
+
 # Local environment files (examples and the non-secret test file are committed)
 .env
 .env.local

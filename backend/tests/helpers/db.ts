@@ -2,7 +2,7 @@ import { createPrismaClient } from '../../src/lib/prisma.js';
 import { assertTestDatabase } from '../../src/testing/assertTestDatabase.js';
 import { hashPassword } from '../../src/modules/auth/password.js';
 import { signToken } from '../../src/modules/auth/tokens.js';
-import type { Role } from '../../src/generated/prisma/client.js';
+import type { Prisma, Role } from '../../src/generated/prisma/client.js';
 
 // Refuse to even connect unless this is a *_test database.
 assertTestDatabase(process.env);
@@ -33,4 +33,19 @@ export async function createUser(options: { role?: Role; password?: string } = {
   });
   const token = signToken({ sub: user.id, role: user.role }, testJwtSecret);
   return { user, token, authHeader: `Bearer ${token}` };
+}
+
+/** Inserts a vehicle directly (bypassing the API) for arranging test state. */
+export function createVehicle(overrides: Partial<Prisma.VehicleCreateInput> = {}) {
+  return testPrisma.vehicle.create({
+    data: {
+      make: 'Toyota',
+      model: 'Corolla',
+      year: 2024,
+      category: 'SEDAN',
+      price: '21500.00',
+      quantity: 5,
+      ...overrides,
+    },
+  });
 }

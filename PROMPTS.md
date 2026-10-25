@@ -9,9 +9,20 @@ here is an AI-written summary.
 
 _Commits `914d6a8`…`41de392`, plus the Prisma setup committed in `d0ad130`._
 
-> **⚠️ MISSING:** the raw prompts and chat logs for these earlier sessions have not been added
-> yet. They were separate conversations, and their transcripts are not in this repository.
-> Paste them below verbatim, or add public share links. Until then, this section is incomplete.
+### Shared conversation: "Phase 1 architecture approval"
+
+- **Link:** https://claude.ai/share/ee388574-da75-4bd9-b407-fbbd66c1369c
+- **Scope (my own description, from reading the shared page):** AutoTrust project architecture,
+  and the Prisma M1 blocker and options for resolving it, including an `autotrust-m0.bundle` and
+  an `m1-prisma-tooling.patch`.
+- **Not verified:** Claude could not read this page's contents (it loads client-side), so it has
+  not been checked against specific commits. It is not claimed to document any particular commit
+  listed above.
+
+> **⚠️ MISSING:** the raw prompts and chat logs for the sessions that produced the commits listed
+> above have not been added, apart from the one shared conversation above, whose exact coverage is
+> unverified. Paste further logs below verbatim, or add public share links. Until then, this section
+> is incomplete.
 
 ---
 

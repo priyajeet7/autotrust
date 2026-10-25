@@ -5,6 +5,7 @@ const validSource = {
   NODE_ENV: 'production',
   PORT: '8080',
   DATABASE_URL: 'postgresql://user:secret@db.example.com:5432/autotrust',
+  JWT_SECRET: 'a-production-secret-that-is-at-least-32-chars',
 };
 
 describe('parseEnv', () => {
@@ -13,18 +14,25 @@ describe('parseEnv', () => {
       NODE_ENV: 'production',
       PORT: 8080,
       DATABASE_URL: 'postgresql://user:secret@db.example.com:5432/autotrust',
+      JWT_SECRET: 'a-production-secret-that-is-at-least-32-chars',
     });
   });
 
   it('defaults NODE_ENV to development and PORT to 4000', () => {
-    const env = parseEnv({ DATABASE_URL: validSource.DATABASE_URL });
+    const env = parseEnv({
+      DATABASE_URL: validSource.DATABASE_URL,
+      JWT_SECRET: validSource.JWT_SECRET,
+    });
 
     expect(env.NODE_ENV).toBe('development');
     expect(env.PORT).toBe(4000);
   });
 
   it('accepts the postgres:// scheme as well as postgresql://', () => {
-    const env = parseEnv({ DATABASE_URL: 'postgres://u:p@localhost:5432/autotrust' });
+    const env = parseEnv({
+      DATABASE_URL: 'postgres://u:p@localhost:5432/autotrust',
+      JWT_SECRET: validSource.JWT_SECRET,
+    });
 
     expect(env.DATABASE_URL).toBe('postgres://u:p@localhost:5432/autotrust');
   });
@@ -51,6 +59,19 @@ describe('parseEnv', () => {
     expect(() => parseEnv({ ...validSource, PORT: port })).toThrow(/PORT/);
   });
 
+  it('throws naming JWT_SECRET when it is missing', () => {
+    const withoutSecret = { ...validSource, JWT_SECRET: undefined };
+
+    expect(() => parseEnv(withoutSecret)).toThrow(/JWT_SECRET is required/);
+  });
+
+  it('rejects a JWT_SECRET shorter than 32 characters without echoing it', () => {
+    const error = captureError(() => parseEnv({ ...validSource, JWT_SECRET: 'too-short-secret' }));
+
+    expect(error.message).toMatch(/JWT_SECRET must be at least 32 characters/);
+    expect(error.message).not.toContain('too-short-secret');
+  });
+
   it('rejects an unknown NODE_ENV', () => {
     expect(() => parseEnv({ ...validSource, NODE_ENV: 'staging' })).toThrow(/NODE_ENV/);
   });
@@ -60,6 +81,7 @@ describe('parseEnv', () => {
 
     expect(error.issues.map((issue) => issue.variable).sort()).toEqual([
       'DATABASE_URL',
+      'JWT_SECRET',
       'NODE_ENV',
       'PORT',
     ]);
